@@ -53,3 +53,39 @@
 26 / dev/sda pour installer le grub
 
 27 / Continue
+
+# ---- Setup Sudo ---
+
+1 / $>su -
+
+1 / $>apt-get update
+
+1 / $>apt-get install vim
+
+1 / $>apt install sudo
+
+1 / Verifier si sudo est bien install $>dpkg -1 | grep sudo
+
+# ---- Ajouter des users au group sudo ---
+
+1 / $>adduser rle-thie sudo
+
+1 / $>usermod -aG sudo rle-thie
+
+1 / $>getent group sudo
+
+1 / $>reboot
+
+1 / login et mdp
+
+1 / $>sudo -v
+
+# ---- Config de sudo ---
+
+1 / $>sudo vi /etc/sudoers.d/sudo_config
+
+1 / "Defaults     passwd_tries=3"
+
+1 / "Defaults     badpass_message="c pas le bon mdp"
+
+1 / $>
