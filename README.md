@@ -64,7 +64,7 @@
 
 1 / $>apt install sudo
 
-1 / Verifier si sudo est bien install $>dpkg -1 | grep sudo
+1 / Verifier si sudo est bien install $>dpkg -l | grep sudo
 
 # ---- Ajouter des users au group sudo ---
 
@@ -104,3 +104,38 @@
 
 # ---- installer et config ssh ---
 
+1 / $>sudo apt install openssh-server
+
+1 / $>dpkg -l | grep ssh
+
+1 / $>sudo vi /etc/ssh/sshd_config
+
+1 / changer ligne15 "#Port 22" par "Port 4242"
+
+1 / changer ligne34 "#PermitRootLogin prohibit-password" par "PermitRootLogin no"
+
+1 / $>sudo service ssh status OU $>systemctl status ssh
+
+# ---- FIREWALL (ufw) ---
+
+1 / $>sudo apt install ufw
+
+1 / $>dpkg -l | grep ufw
+
+1 / $>sudo ufw enable
+
+1 / $>sudo ufw allow 4242
+
+1 / $>sudo ufw status
+
+# ---- CONNEXION SSH ---
+
+1 / $>ifconfig -a OU $>ip addr
+
+1 / $>ssh rle-thie@<ip-address> -p 4242
+
+1 / $>mdp intra
+
+1 / $>logout
+
+1 / $>mdp intra OU $>exit
