@@ -84,8 +84,23 @@
 
 1 / $>sudo vi /etc/sudoers.d/sudo_config
 
-1 / "Defaults     passwd_tries=3"
+1 / Defaults     passwd_tries=3
 
-1 / "Defaults     badpass_message="c pas le bon mdp"
+1 / Defaults     badpass_message="c pas le bon mdp"
 
-1 / $>
+1 / Defaults     logfile="/var/log/sudo/sudo_log"
+
+1 / Defaults     log_input,log_output
+
+1 / Defaults     iolog_dir="/var/log/sudo"
+
+1 / Defaults     requiretty
+
+1 / Defaults     secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+1 / $>sudo mkdir /var/log/sudo
+
+1 / $>sudo reboot
+
+# ---- installer et config ssh ---
+
