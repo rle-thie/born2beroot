@@ -8,15 +8,15 @@
 
 4 / USA - American english pour le keyboard
 
-5 / Hostname : arudy42
+5 / Hostname : rle-thie42
 
 6 / Configure Network : laisser blanc, pas de NDD à confgurer
 
 7 / Root psw : MDP intra / Confirmer a nouveau ensuite
 
-8 / Nom Complet : Arthur Rudy, pour un second user
+8 / Nom Complet : Robin Lethiec, pour un second user
 
-9 / Login : arudy
+9 / Login : rle-thie
 
 10 / MDP intra / Confirmer ensuite le MDP
 
