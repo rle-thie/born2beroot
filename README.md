@@ -139,3 +139,31 @@
 1 / $>logout
 
 1 / $>mdp intra OU $>exit
+
+# ---- PASSWORD DE FOU FURIEUX ---  
+
+1 / $>sudo vi /etc/login.defs
+
+1 / changer ligne 160 "PASS_MAX_DAYS   99999" par "PASS_MAX_DAYS   30"
+
+1 / changer ligne 161 "PASS_MIN_DAYS   0" par "PASS_MAX_DAYS   2"
+  
+1 / verifier que ligne 162 "PASS_WARN_AGE   7"
+  
+1 / $>sudo apt install libpam-pwquality
+  
+1 / $>dpkg -l | grep libpam-pwquality
+  
+1 / $>sudo vi /etc/pam.d/common-password
+
+1 / ligne 25 "password      requisite     pam_pwquality.so retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root"
+
+# ---- creer un nouveau groupe ---
+  
+1 / $>sudo addgroup user42
+  
+1 / $>sudo adduser rle-thie user42
+  
+1 / $>sudo adduser rle-thie user42
+
+1 / $>getent group user42
