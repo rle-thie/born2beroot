@@ -185,3 +185,7 @@
 3 / ajouter a la fin du file "*/10 * * * * /usr/local/bin/monitoring.sh"
   
 4 / $>sudo reboot
+
+# ---- ERREUR ---
+  
+si y'a une erreur au lancement, reglage de la vm > display > graphic controller > VBoxVGA
