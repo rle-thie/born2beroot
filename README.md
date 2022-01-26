@@ -114,6 +114,8 @@
 
 1 / changer ligne34 "#PermitRootLogin prohibit-password" par "PermitRootLogin no"
 
+1 / $>sudo service ssh restart
+
 1 / $>sudo service ssh status OU $>systemctl status ssh
 
 # ---- FIREWALL (ufw) ---
