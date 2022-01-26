@@ -175,3 +175,13 @@
 1 / $>sudo usermod -aG user42 your_username
 
 1 / $>getent group user42
+
+# ---- monitoring.sh ---
+
+1 / Ajouter monitoring.sh a "usr/local/bin/"
+  
+2 / $>sudo crontab -u root -e
+  
+3 / ajouter a la fin du file "*/10 * * * * /usr/local/bin/monitoring.sh"
+  
+4 / $>sudo reboot
