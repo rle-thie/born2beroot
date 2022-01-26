@@ -182,9 +182,16 @@
   
 2 / $>sudo crontab -u root -e
   
-3 / ajouter a la fin du file "*/10 * * * * /usr/local/bin/monitoring.sh"
+3 / ajouter a la fin du file "*/10 * * * * bash /usr/local/bin/monitoring.sh"
   
 4 / $>sudo reboot
+
+# ---- monitoring.sh 2---
+
+sudo apt-get install cron /#/ installe cron
+sudo vim /etc/crontab /#/ ouvre le fichier crontab
+cp /home/lleveque/monitoring.sh /etc/init.d/ /#/ copie monitoring.sh dans le dossier que l'on veut
+*/* 10 * * * root bash /etc/init.d/monitoring.sh /#/ execute bash monitoring.sh toutes les 10 min
 
 # ---- ERREUR ---
   
