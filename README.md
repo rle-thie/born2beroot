@@ -168,4 +168,10 @@
   
 1 / $>sudo adduser rle-thie user42
 
+# ---- creer un nouveau user ---
+  
+1 / $>sudo adduser new_username
+  
+1 / $>sudo usermod -aG user42 your_username
+
 1 / $>getent group user42
