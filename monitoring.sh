@@ -1,13 +1,25 @@
 #!/bin/bash
-wall $'#Architecture: ' `hostnamectl | grep "Operating System" | cut -d ' ' -f5- ` `awk -F':' '/^model name/ {print $2}' /proc/cpuinfo | uniq | sed -e 's/^[ \t]*//'` `arch` \
-$'\n#CPU physical: '`cat /proc/cpuinfo | grep processor | wc -l` \
-$'\n#vCPU:  '`cat /proc/cpuinfo | grep processor | wc -l` \
-$'\n'`free -m | awk 'NR==2{printf "#Memory Usage: %s/%sMB (%.2f%%)", $3,$2,$3*100/$2 }'` \
-$'\n'`df -h | awk '$NF=="/"{printf "#Disk Usage: %d/%dGB (%s)", $3,$2,$5}'` \
-$'\n'`top -bn1 | grep load | awk '{printf "#CPU Load: %.2f\n", $(NF-2)}'` \
-$'\n#Last boot: ' `who -b | awk '{print $3" "$4" "$5}'` \
-$'\n#LVM use: ' `lsblk |grep lvm | awk '{if ($1) {print "yes";exit;} else {print "no"} }'` \
-$'\n#Connection TCP:' `netstat -an | grep ESTABLISHED |  wc -l` \
-$'\n#User log: ' `who | cut -d " " -f 1 | sort -u | wc -l` \
-$'\nNetwork: IP ' `hostname -I`"("`ip a | grep link/ether | awk '{print $2}'`")" \
-$'\n#Sudo:  ' `grep 'sudo ' /var/log/auth.log | wc -l`
+cpup=`lscpu | grep "CPU(s)" | awk 'NR==1{print $2}'`
+cpuv=`lscpu | grep 'Thread(s) per core:' | awk 'NR==1{print $4}'`
+mem_usage=`free -m | grep 'Mem' | awk '{print $3}'`'/'`free -m | grep 'Mem' | awk '{print $2}'`'MB ('`free -m | grep 'Mem' | awk '{print $3 * 100 / $2}' | cut -c-4`'%)'
+disk_total=`df -m | sed 1d | awk '{sum+=$2;}END{print sum}' | cut -c-1`
+disk_usage=`df -m | sed 1d | awk '{sum+=$3;}END{print sum}'`
+disk_percent=`df | sed 1d | awk '{sum+=$2; sum2+=$3}END{print sum2 * 100 / sum}' | cut -c-2`
+cpu_load=`mpstat | grep "all" | awk '{print 100-$13}'`
+lvm_use=`lsblk | grep lvm | head -n1 | awk '{if($6 == "lvm") print "yes"; else print "no"}'` 
+tcp_connexion=`netstat -an | grep ESTABLISHED | wc -l`
+ip=`hostname -I` 
+mac=`ip link | grep "link/ether" | awk '{print $2}'`
+sudo_cmd=`grep COMMAND /var/log/sudo/sudo.log | wc -l`
+wall $'#Architecture : '`uname -a` \
+$'\n#CPU physical : '$cpup \
+$'\n#vCPU : '$cpuv \
+$'\n#Memory Usage : '$mem_usage \
+$'\n#Disk Usage : '$disk_usage"/"$disk_total"GB ("$disk_percent"%)" \
+$'\n#CPU load : ' $cpu_load"%"\
+$'\n#Last boot : '`who -b | awk '{print $3,$4}'` \
+$'\n#LVM use : '$lvm_use \
+$'\n#Connexions TCP : '$tcp_connexion "ESTABLISHED" \
+$'\n#User log : '`users | wc -w` \
+$'\n#Network : '"IP" $ip "("$mac")" \
+$'\n#Sudo : ' $sudo_cmd "cmd" \
