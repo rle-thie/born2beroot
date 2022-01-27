@@ -1,3 +1,4 @@
+ARCHI=`uname -a`
 CPU_PHYSICAL=`grep -c ^processor /proc/cpuinfo`
 vCPU=`lscpu | grep "Thread(s)" | awk '{print $4}'`
 MEM_PERC=`free -m | grep "Mem" | awk '{print $3/$2*100}'`
