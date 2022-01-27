@@ -14,7 +14,7 @@ TCP_USE=`ss -s | grep TCP: | awk '{print ($4)+0}'`
 USER_LOG=`who | wc -l`
 IPv4=`hostname -I | awk '{print $1}'`
 MAC=`ip a | grep link/ether | awk '{print $2}'`
-SUDO_NB=`cat /var/log/sudo/sudo.log | grep COMMAND | wc -l`
+SUDO_NB=`cat /var/log/sudo/sudo_log | grep COMMAND | wc -l`
 
 wall "#Architeture : $ARCHI
 #CPU Physical : $CPU_PHYSICAL
