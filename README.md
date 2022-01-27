@@ -196,3 +196,4 @@ cp /home/lleveque/monitoring.sh /etc/init.d/ /#/ copie monitoring.sh dans le dos
 # ---- ERREUR ---
   
 si y'a une erreur au lancement, reglage de la vm > display > graphic controller > VBoxVGA
+source:https://github.com/lleveque42/42cursus_Born2beroot
