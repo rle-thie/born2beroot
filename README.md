@@ -197,3 +197,28 @@ cp /home/lleveque/monitoring.sh /etc/init.d/ /#/ copie monitoring.sh dans le dos
   
 si y'a une erreur au lancement, reglage de la vm > display > graphic controller > VBoxVGA
 source:https://github.com/lleveque42/42cursus_Born2beroot
+  
+  
+	groupadd <new group> (create group)
+	groupdel <group> (delete group)
+	useradd <username> (create user)
+	userdel <username> (delete user)
+	passwd <username> (create password)
+	adduser <username> <group> (add user to group)
+	deluser <username> <group> (remove user from a group)
+	groups <username> (get groups that user are in)
+	hostnamectl set-hostname <new hostname>
+	service ssh status
+	ufw enable
+	ufw allow <port>
+	ufw status
+	ufw status numbered
+	ufw delete <number>
+	chage -M 30 <username>
+	chage -m 2 <username>
+	chage -W 7 <username>
+	chage -l <username>
+	crontab -l
+	lsblk
+	ss -tunlp
+	ifconfig
