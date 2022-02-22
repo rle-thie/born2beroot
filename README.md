@@ -223,3 +223,17 @@ source:https://github.com/lleveque42/42cursus_Born2beroot
 	lsblk
 	ss -tunlp
 	ifconfig
+
+sudo vim /etc/login.defs /#/ ouvre le fichier pour set les days limites mdp
+PASS_MAX_DAYS	30 /#/ set l'expiration du mdp a 30 jours
+PASS_MIN_DAYS	2 /#/ set le temps de maj a 2 jours
+PASS_WARN_AGE	7 /#/ set le warn d'expiration a 7 jours avant
+
+sudo vim /etc/security/pwquality.conf /#/ ouvre le fichier pour set les limites de caracteres
+minlen = 10 /#/ min de caracteres
+dcredit = -1 /#/ min de chiffre
+ucredit = -1 /#/ min de majuscule
+difok = 7 /#/ nb de caracteres differents de l'ancien !! trouver comment ne pas appliquer a root
+maxrepeat = 3 /#/ max de repetitions consecutives d'un meme caractere
+usercheck = 1 /#/ check si le user est dans le password
+enforce_for_root /#/ impose le pwquality au root
