@@ -233,7 +233,7 @@ sudo vim /etc/security/pwquality.conf /#/ ouvre le fichier pour set les limites 
 minlen = 10 /#/ min de caracteres
 dcredit = -1 /#/ min de chiffre
 ucredit = -1 /#/ min de majuscule
-difok = 7 /#/ nb de caracteres differents de l'ancien !! trouver comment ne pas appliquer a root
+difok = 7 /#/ nb de caracteres differents de l'ancien
 maxrepeat = 3 /#/ max de repetitions consecutives d'un meme caractere
 usercheck = 1 /#/ check si le user est dans le password
 enforce_for_root /#/ impose le pwquality au root
