@@ -219,6 +219,7 @@ source:https://github.com/lleveque42/42cursus_Born2beroot
 	chage -W 7 <username>
 	chage -l <username>
 	crontab -l
+	crontab -u root -e
 	lsblk
 	ss -tunlp
 	ifconfig
