@@ -241,3 +241,6 @@ source:https://github.com/lleveque42/42cursus_Born2beroot
 	SELinux rule sets are incredibly complex but with this complexity you have more control over how processes are isolated. Generating these policies 		can be automated. A strike against this security system is that its very difficult to independently verify.
 
 	AppArmor (and SMACK) is very straight forward. The profiles can be hand written by humans, or generated using aa-logprof. AppArmor uses path based 		control, making the system more transparent so it can be independently verified.
+	
+	aptitude est un gestionnaire de paquets avec une interface en mode texte
+	De l'avis général, aptitude gère mieux les dépendances que apt-get. Par exemple, aptitude supprimera les paquets inutiles lors de la désinstallation d'un paquet
