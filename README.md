@@ -82,6 +82,8 @@
 
 # ---- Config de sudo ---
 
+source:https://github.com/lleveque42/42cursus_Born2beroot
+
 1 / $>sudo vi /etc/sudoers.d/sudo_config
 
 1 / Defaults     passwd_tries=3
@@ -196,7 +198,6 @@ cp /home/lleveque/monitoring.sh /etc/init.d/ /#/ copie monitoring.sh dans le dos
 # ---- ERREUR ---
   
 si y'a une erreur au lancement, reglage de la vm > display > graphic controller > VBoxVGA
-source:https://github.com/lleveque42/42cursus_Born2beroot
   
   
 	groupadd <new group> (create group)
