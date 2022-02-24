@@ -236,3 +236,4 @@ source:https://github.com/lleveque42/42cursus_Born2beroot
 	maxrepeat = 3 /#/ max de repetitions consecutives d'un meme caractere
 	usercheck = 1 /#/ check si le user est dans le password
 	enforce_for_root /#/ impose le pwquality au root
+	/etc/init.d/crond stop
